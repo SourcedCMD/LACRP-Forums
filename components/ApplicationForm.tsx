@@ -267,6 +267,7 @@ export default function ApplicationForm({ department, user, onBack }: Applicatio
           </form>
         </motion.div>
       </div>
+      </div>
     </PageTransition>
   )
 }
