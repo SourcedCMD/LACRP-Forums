@@ -78,62 +78,74 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // Helper function to truncate text for Discord embed limits
+    const truncateText = (text: string, maxLength: number = 1024) => {
+      if (!text) return 'N/A'
+      return text.length > maxLength ? text.substring(0, maxLength - 3) + '...' : text
+    }
+
     // Send to Discord webhook
     const webhookUrl = process.env.DISCORD_WEBHOOK_URL
     if (webhookUrl) {
       try {
         const embed = {
-          title: `New ${departmentName} Application`,
-          description: `A new application has been submitted for **${departmentName}**`,
+          title: `📝 New ${departmentName} Application`,
+          description: `A new application has been submitted for **${departmentName}**\n\n**Application Details:**`,
           color: 0x4a9eff, // Blue color
           fields: [
             {
-              name: '👤 Applicant',
-              value: `${username} (${userEmail})`,
+              name: '👤 Applicant Information',
+              value: `**Username:** ${username}\n**Email:** ${userEmail}\n**Discord ID:** ${userId}`,
               inline: false,
-            },
-            {
-              name: '🆔 User ID',
-              value: userId,
-              inline: true,
             },
             {
               name: '🎂 Age',
-              value: age,
+              value: age.toString(),
               inline: true,
             },
             {
+              name: '📋 Department',
+              value: departmentName,
+              inline: true,
+            },
+            {
+              name: '━━━━━━━━━━━━━━━━━━━━━━',
+              value: '\u200b', // Zero-width space for separator
+              inline: false,
+            },
+            {
               name: '💼 Roleplay Experience',
-              value: experience.substring(0, 1024) || 'N/A',
+              value: truncateText(experience),
               inline: false,
             },
             {
-              name: '❓ Why Join',
-              value: whyJoin.substring(0, 1024) || 'N/A',
+              name: '❓ Why do you want to join?',
+              value: truncateText(whyJoin),
               inline: false,
             },
             {
-              name: '✨ What Can You Bring',
-              value: whatCanYouBring.substring(0, 1024) || 'N/A',
+              name: '✨ What can you bring?',
+              value: truncateText(whatCanYouBring),
               inline: false,
             },
             {
               name: '📅 Availability',
-              value: availability.substring(0, 1024) || 'N/A',
+              value: truncateText(availability),
               inline: false,
             },
           ],
           footer: {
             text: 'Los Angeles County Roleplay Forums',
+            icon_url: undefined,
           },
           timestamp: new Date().toISOString(),
         }
 
         // Add previous experience if provided
-        if (previousExperience) {
+        if (previousExperience && previousExperience.trim()) {
           embed.fields.push({
-            name: '🏢 Previous Experience',
-            value: previousExperience.substring(0, 1024) || 'N/A',
+            name: '🏢 Previous Department/Staff Experience',
+            value: truncateText(previousExperience),
             inline: false,
           })
         }

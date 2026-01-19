@@ -18,8 +18,8 @@ DISCORD_CLIENT_SECRET=uLZCfiYSm-c-y8ykO8kLxc1DvC57j6zM
 NEXT_PUBLIC_DISCORD_REDIRECT_URI=http://localhost:3000/api/auth/callback/discord
 
 # Discord Webhook (for application notifications)
-# Create this in your Discord server: Server Settings → Integrations → Webhooks
-DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_url_here
+# Webhook for sending application submissions to Discord
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/1462601081249992735/MMECsJTs9kpiNkSh_zkWsLnTfQVvh5MWGI5T8D0LJDBc47DgTwdNBBBDUfkMa1hjQiXu
 ```
 
 ## Important Notes
