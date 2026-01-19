@@ -8,17 +8,17 @@ export default function DepartmentsPage() {
   const departments = [
     {
       id: 'sast',
-      name: 'San Andreas State Troopers',
+      name: 'California Highway Patrol',
       icon: '🚔',
-      description: 'The San Andreas State Troopers ensures that everything is smoothly running safe and sound.',
+      description: 'The California Highway Patrol ensures that everything is smoothly running safe and sound.',
       responsibilities: ['Highway patrol', 'Traffic enforcement', 'State-wide law enforcement'],
       members: 0,
     },
     {
       id: 'bcso',
-      name: 'Blaine County Sheriff\'s Office',
+      name: 'Los Angeles Sheriffs Department',
       icon: '👮',
-      description: 'The Blaine County Sheriff\'s Office is the primary law enforcement agency in Blaine County.',
+      description: 'The Los Angeles Sheriffs Department is the primary law enforcement agency in Los Angeles County.',
       responsibilities: ['County patrol', 'Rural law enforcement', 'Community safety'],
       members: 0,
     },
@@ -32,9 +32,9 @@ export default function DepartmentsPage() {
     },
     {
       id: 'safr',
-      name: 'San Andreas Fire And Rescue',
+      name: 'California Fire Department',
       icon: '🚒',
-      description: 'The San Andreas Fire & Rescue is the primary fire and rescue service in San Andreas.',
+      description: 'The California Fire Department is the primary fire and rescue service in California.',
       responsibilities: ['Fire suppression', 'Medical emergencies', 'Rescue operations'],
       members: 0,
     },
