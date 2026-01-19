@@ -26,9 +26,9 @@ const departments = [
   },
   {
     id: 'lspd',
-    name: 'Los Santos Police Department',
+    name: 'Los Angeles Police Department',
     icon: '🚓',
-    description: 'The Los Santos Police Department is the primary law enforcement agency in Los Santos.',
+    description: 'The Los Angeles Police Department is the primary law enforcement agency in Los Angeles.',
     category: 'Department Applications',
   },
   {
