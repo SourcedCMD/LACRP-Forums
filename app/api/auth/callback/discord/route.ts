@@ -15,6 +15,10 @@ export async function GET(request: NextRequest) {
   }
 
   try {
+    // Auto-detect redirect URI from request if not set in env
+    const redirectUri = process.env.NEXT_PUBLIC_DISCORD_REDIRECT_URI || 
+      `${request.nextUrl.protocol}//${request.nextUrl.host}/api/auth/callback/discord`
+
     // Exchange code for Discord access token
     const tokenResponse = await fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
@@ -26,7 +30,7 @@ export async function GET(request: NextRequest) {
         client_secret: process.env.DISCORD_CLIENT_SECRET!,
         grant_type: 'authorization_code',
         code: code,
-        redirect_uri: process.env.NEXT_PUBLIC_DISCORD_REDIRECT_URI || 'http://localhost:3000/api/auth/callback/discord',
+        redirect_uri: redirectUri,
       }),
     })
 
