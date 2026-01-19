@@ -45,13 +45,6 @@ const departments = [
     description: 'Certified Civilians are the backbone of the community.',
     category: 'Department Applications',
   },
-  {
-    id: 'lscso',
-    name: 'Los Santos County Sheriffs Office',
-    icon: '🏛️',
-    description: 'The Los Santos County Sheriff Department is the primary law enforcement agency in Los Santos County.',
-    category: 'Department Applications',
-  },
 ]
 
 const staffJobs = [

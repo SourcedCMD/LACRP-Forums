@@ -46,14 +46,6 @@ export default function DepartmentsPage() {
       responsibilities: ['Community activities', 'Business operations', 'Civilian roleplay'],
       members: 0,
     },
-    {
-      id: 'lscso',
-      name: 'Los Santos County Sheriffs Office',
-      icon: '🏛️',
-      description: 'The Los Santos County Sheriff Department is the primary law enforcement agency in Los Santos County.',
-      responsibilities: ['County law enforcement', 'Rural patrol', 'Community service'],
-      members: 0,
-    },
   ]
 
   const containerVariants = {
